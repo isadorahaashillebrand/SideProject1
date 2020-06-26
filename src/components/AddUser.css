@@ -1,0 +1,9 @@
+.AddUser {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-group.col {
+  padding-left: 0 !important;
+}

@@ -1,0 +1,19 @@
+.UserCard {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 700;
+  color: rgb(9, 24, 73);
+}
+
+.title2 {
+    font-weight: 600;
+    color: rgb(72, 74, 82);
+  }
+
+.input{
+    margin: 5px 0px 10px 0px;
+}

@@ -1,49 +1,70 @@
-import React from 'react';
+import React from "react";
+import { Card, Button } from "react-bootstrap";
+import "./UserCard.css";
+import { CardBody } from "reactstrap";
 
 class UserCard extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        id: this.props.user.id,
-        username: this.props.user.username,
-        name: this.props.user.name,
-        email: this.props.user.email,
-        street: this.props.user.address.street,
-        city: this.props.user.address.city,
-        company: this.props.user.company,
-        website: this.props.user.website,
-        phone: this.props.user.phone
-      }
-    }
-  
-    render() {
-      return (
-        <div className="User">
-          <div className="username bold">User {this.state.id} - {this.state.username}</div>
-          <div className="name space">{this.state.name}</div>
-          <div className="subject">
-            Email: 
-            <span className="text"> {this.state.email}</span>
-          </div>
-          <div className="subject">
-            Adress: 
-            <span className="text"> {this.state.street}, {this.state.city}</span>
-          </div>
-          <div className="subject space">
-            Phone: 
-            <span className="text"> {this.state.phone}</span>
-          </div>
-          <div className="subject">
-            Company: 
-            <span className="text"> {this.state.company.name}</span>
-          </div>
-          <div className="subject">
-            Website: 
-            <span className="text"> {this.state.website}</span>
-          </div>
-        </div>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: this.props.user.id,
+      username: this.props.user.username,
+      name: this.props.user.name,
+      email: this.props.user.email,
+      website: this.props.user.website,
+      phone: this.props.user.phone,
+    };
   }
-  
-  export default UserCard;
+
+  render() {
+    const {
+      id,
+      username,
+      name,
+      email,
+      website,
+      phone,
+    } = this.state;
+    return (
+      <div>
+        <div className="UserCard">
+          <Card style={{ width: "25rem" }}>
+            <CardBody>
+              <div className="input">
+                <Card.Text>
+                  <spam className="title">Name:</spam> {name}
+                </Card.Text>
+              </div>
+              <div className="input">
+                <Card.Text>
+                  <spam className="title">UserName:</spam> {username}
+                </Card.Text>
+              </div>
+              <div className="input">
+                <Card.Text>
+                  <spam className="title">Contact:</spam>
+                  <ul className="contact">
+                    <li>
+                      <spam className="title2">Phone:</spam> {phone}
+                    </li>
+                    <li>
+                      <spam className="title2">E-mail:</spam> {email}
+                    </li>
+                    <li>
+                      <spam className="title2">Website:</spam> {website}
+                    </li>
+                  </ul>
+                </Card.Text>
+              </div>
+              <Button onClick={() => this.props.deleteUser(id)}>
+                Delete User
+              </Button>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default UserCard;
